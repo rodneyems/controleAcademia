@@ -1,0 +1,196 @@
+@import "https://fonts.googleapis.com/css?family=Poppins|Raleway&display=swap";
+
+:root{
+    --color-borders: yellowgreen;
+}
+*
+body{
+    margin: 0px;
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 100%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-image: url(https://wallpapermemory.com/uploads/573/blue-wallpaper-hd-2560x1440-293859.jpg);
+}
+
+header{
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 7px solid #333;
+}
+
+.links a {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 20px;
+    color: white;
+    text-decoration: none;  
+}
+
+.links a:hover{
+    color: yellowgreen;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#wrapper{
+    min-height: calc(100vh - 110px);
+    color: white;
+}
+
+
+#wrapper img{
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    border-width: 10px;
+    border-color: var(--color-borders);
+    border-style: double;
+}
+
+#wrapper h1 {
+    font-size: 50px;
+    line-height: 10px;
+    font-weight: 500;
+}
+
+#wrapper h2 {
+    margin-bottom: 50px;
+    font-size: 25px;
+    line-height: 20px;
+    font-weight: 150;
+}
+
+#wrapper p {
+    max-width: 800px;
+    margin: 50px auto;
+    font-size: 17px;
+}
+#links-footers {
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 7px solid #333;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#links-footers a {    
+    border-bottom: 1px solid var(--color-borders);
+}
+
+/* ------ CARDS ------ */
+
+#wrapperDicas h1{
+    margin: 20px;
+    color: white;
+}
+
+.wrapperContent{
+    min-height: calc(100vh - 187px);
+}
+.cards{
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 50px;
+}
+.card{
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(143, 35, 57, 0.568);
+    border-radius: 20px;
+}
+.card_image-container img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+}
+.card_content h1{
+    border-top: 0px;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom-style: solid;
+}
+
+.card_content h2{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.card_infos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card_infos p{
+    margin: 10px;
+    color: white;
+    text-align: top;
+    font-size: 15px;
+}
+.card_infos .type {
+    border-style: dashed;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+
+/* ------ MODAL ------ */
+
+.modalOverlay{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal{
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    margin: 5vh auto;
+    position: relative;
+}
+
+.modal .close-modal{
+    color: black;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* ------ MODAL ACTIVE ------ */
+
+.modalOverlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modalContent iframe {
+    left: 0px;
+    top: 5%;
+    width: 100%;
+    height: 90%;
+    position: absolute;
+
+}
+
+/* ------ FEATURED ------ */
+.Featured{
+    position: absolute;
+    background-color: bisque;
+    right: 0px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <Title>Gym Manager</Title>
+        {% endblock %}
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+    <body>
+        <header>
+            <div class="links">
+                <a href="/">Instrutores</a>
+                <a href="/dicas">Membros</a>
+            </div>
+        </header>
+        
+        {% block content %}
+
+        {% endblock %}
+    
+        <div id="links-footers" class="links">
+            {% for link in links.link %}
+            <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+            {% endfor %}
+        </div>  
+
+        <script src="scripts.js"></script>
+    </body>
+</html>
