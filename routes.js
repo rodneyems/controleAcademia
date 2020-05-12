@@ -4,10 +4,10 @@ const routes = express.Router()
 /* ====== ROUTES ====== */
 
 routes.get('/', function(req, res){
-    return res.redirect("/instrutores")
+    return res.redirect("/instrutores/index.njk")
 })
 
-routes.get('/instrutores', function(req, res){
+routes.get('/instrutores/index.njk', function(req, res){
     return res.render("instrutores/index")
 })
 
