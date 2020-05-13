@@ -30,6 +30,7 @@ header {
 
 .links a {
     text-decoration: none;
+    color: var(--cor);
     position: relative;
 }
 
@@ -39,7 +40,6 @@ header {
 
 .links a.active {
     font-weight: bold;
-    color: var(--cor);
 }
 
 .links a::after{
@@ -63,6 +63,7 @@ header {
     width: 800px;
     height: 400px;
     margin: 45px auto;
+    word-break:break-all;
 
 /* ==== Colunas Card ==== */ 
 display: grid;
@@ -100,9 +101,10 @@ display: grid;
 }
 
 .details .item{
-    padding: 14px 0;
+    padding: 10px 0;
     border-bottom: 2px solid rgba(145, 55, 230, 0.336);
 }
+
 
 .details .item:last-child{
     border:none
@@ -125,4 +127,39 @@ display: grid;
     background-color: rgb(238, 255, 2);
     border-radius: 30px;
     display: inline-block;
+}
+
+/* ==== Formulario ==== */
+
+.item .check a:not(:first-child){
+    padding-top: 8px;
+    padding-left: 5px;
+    display: inline-block;
+}
+
+input {
+    outline: none;
+    font-weight: bold;
+}
+
+input::placeholder{
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+}
+input[type="date"]{
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+button[type="submit"]{
+    padding: 8px 32px;
+    background-color: var(--cor);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 8px;
+    border-radius: 30px;
+    width: 100%;
 }
