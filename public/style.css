@@ -92,7 +92,7 @@ display: grid;
 /* ==== Details ==== */
 
 .details{
-    margin: 20px;
+    padding: 10px;
 }
 
 .details h3{
@@ -103,6 +103,10 @@ display: grid;
 .details .item{
     padding: 10px 0;
     border-bottom: 2px solid rgba(145, 55, 230, 0.336);
+}
+.details.index .item{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 
