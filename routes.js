@@ -12,9 +12,11 @@ routes.get('/instrutores', function(req, res){
     return res.render("instrutores/index")
 })
 
-routes.get('/instrutores/create.njk', function(req, res){
+routes.get('/instrutores/create', function(req, res){
     return res.render("instrutores/create.njk")
 })
+
+routes.get('/instrutores/:id', functionInst.show)
 
 routes.post('/instrutores', functionInst.post)
 
