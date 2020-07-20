@@ -81,6 +81,28 @@
         "Musculação"
       ],
       "desde": 1594896738870
+    },
+    {
+      "id": 8,
+      "avatar_url": "http://www.google.com",
+      "name": "Paulo Castanha",
+      "nascimento": 1595116800000,
+      "sexo": "Masculino",
+      "area": [
+        "Musculação"
+      ],
+      "desde": 1595247992674
+    },
+    {
+      "id": 9,
+      "avatar_url": "http://www.google.com.br",
+      "name": "Roberta Elias",
+      "nascimento": 963964800000,
+      "sexo": "Indefinido",
+      "area": [
+        "Crossfit"
+      ],
+      "desde": 1595251396470
     }
   ]
 }

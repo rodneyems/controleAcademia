@@ -1,8 +1,9 @@
 const fs = require("fs")
 const data = require("./data.json")
-const { idade } = require("./utils.js")
+const { idade, date } = require("./utils.js")
 const { options } = require("./routes")
 
+// Funcao Show
 exports.show = function(req, res){
     const { id } = req.params
     const foundinstructors = data.instrutores.find(function(instrutores){
@@ -13,7 +14,7 @@ exports.show = function(req, res){
     const instrutorEstilizado = {
         ...foundinstructors,
         nascimento: idade(foundinstructors.nascimento),
-        desde: new Intl.DateTimeFormat("pt-BR").format(1594896738870)
+        desde: new Intl.DateTimeFormat("pt-BR").format(foundinstructors.desde)
     }
 
     
@@ -50,4 +51,21 @@ exports.post = function(req, res){
         if (err) return res.send("Falha de escrita")
     })
         return res.redirect("/instrutores/create")
+}
+
+// Funcao Edit
+exports.edit = function (req, res){
+    const { id } = req.params
+    const foundinstructors = data.instrutores.find(function(instrutores){
+        return id == instrutores.id
+    })
+    if (!foundinstructors) return res.send("Instrutor não encontrado")
+
+    const instrutorEstilizado = {
+        ...foundinstructors,
+        nascimento: date(foundinstructors.nascimento),
+        desde: new Intl.DateTimeFormat("pt-BR").format(foundinstructors.desde)
+    }
+ 
+    return res.render("../views/instrutores/edit.njk", { instrutor: instrutorEstilizado })
 }
