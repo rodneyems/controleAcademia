@@ -1,5 +1,7 @@
 const fs = require("fs")
 const data = require("./data.json")
+const { idade } = require("./utils.js")
+const { options } = require("./routes")
 
 exports.show = function(req, res){
     const { id } = req.params
@@ -8,8 +10,14 @@ exports.show = function(req, res){
     })
     if (!foundinstructors) return res.send("Instrutor não encontrado")
 
+    const instrutorEstilizado = {
+        ...foundinstructors,
+        nascimento: idade(foundinstructors.nascimento),
+        desde: new Intl.DateTimeFormat("pt-BR").format(1594896738870)
+    }
+
     
-    return res.render("../views/instrutores/show.njk", { instrutor: foundinstructors })
+    return res.render("../views/instrutores/show.njk", { instrutor: instrutorEstilizado })
 }
 
 // Funcao Post
