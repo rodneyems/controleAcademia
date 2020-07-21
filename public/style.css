@@ -106,8 +106,8 @@ display: grid;
     border-bottom: 2px solid rgba(145, 55, 230, 0.336);
 }
 .details.index .item{
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 
@@ -160,7 +160,7 @@ input[type="date"]{
     font-weight: normal;
 }
 
-button[type="submit"]{
+button[type="submit"], .button{
     padding: 8px 32px;
     background-color: var(--cor);
     color: white;
@@ -170,4 +170,11 @@ button[type="submit"]{
     margin-top: 8px;
     border-radius: 30px;
     width: 100%;
+}
+
+a.button {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
 }
