@@ -26,4 +26,6 @@ routes.get('/membros', function(req, res){
     return res.send("membros")
 })
 
+routes.put('/instrutores', functionInst.put)
+
 module.exports = routes

@@ -69,3 +69,26 @@ exports.edit = function (req, res){
  
     return res.render("../views/instrutores/edit.njk", { instrutor: instrutorEstilizado })
 }
+
+// Funcao PUT
+exports.put = function (req, res){
+    const { id } = req.body
+    const foundinstructors = data.instrutores.find(function(instrutores){
+        return id == instrutores.id
+    })
+    if (!foundinstructors) return res.send("Instrutor não encontrado")
+
+    let nascimento = Date.parse(req.body.nascimento)
+    const instrutorEstilizado = {
+        ...foundinstructors,
+        ...req.body,
+        nascimento
+    }
+ 
+    data.instrutores[id - 1] = instrutorEstilizado
+
+    fs.writeFile("data.json", JSON.stringify(data,null,2), function(err){
+        if (err) return res.send("Falha de escrita")
+    })
+        return res.redirect(`/instrutores/${id}`)
+}

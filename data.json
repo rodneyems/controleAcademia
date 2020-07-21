@@ -13,19 +13,20 @@
       "desde": 1594895359987
     },
     {
-      "id": 2,
+      "id": "2",
       "avatar_url": "http://www.google.com.br",
-      "name": "Martinha Cassiano",
+      "name": "Martinha Cassiano SILVA",
       "nascimento": 671068800000,
       "sexo": "Feminino",
       "area": [
         "Crossfit",
-        "Musculação"
+        "Musculação",
+        "Aeróbica"
       ],
       "desde": 1594895378648
     },
     {
-      "id": 3,
+      "id": "3",
       "avatar_url": "http://www.google.com.br",
       "name": "Ana Carolina",
       "nascimento": 1054598400000,
