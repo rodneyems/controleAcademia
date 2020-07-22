@@ -235,7 +235,6 @@ tbody tr td span{
 
 }
 
-
 tbody tr td:first-child span{
     width: 48px;
     height: 48px;
@@ -244,4 +243,8 @@ tbody tr td:first-child span{
     border-radius: 50%;
     box-shadow: 3px 1px 6px -4px black;
     border: 2px solid white;
+}
+
+tbody tr td:last-child{
+    color: var(--cor);
 }
