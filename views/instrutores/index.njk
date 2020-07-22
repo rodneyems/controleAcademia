@@ -2,45 +2,26 @@
 
 {% block content %}
 
-<div class="card">
-    <section 
-        class="avatar" 
-        style="background: url(https://source.unsplash.com/collection/3465564/400x400) no-repeat"></section>
-    
-    <section class="details index">
-    
-        <h3> DETALHES </h3>
-
-        <div class="item">
-            <div>Instrutor</div>
-            <div>Marcos Paulo</div>
-        </div>
-    
-        <div class="item">
-            <div>Idade</div>
-            <div>29</div>
-        </div>
-        
-        <div class="item">
-            <div>Sexo</div>
-            <div>Masculino</div>
-        </div>
-
-        <div class="item">
-            <div>Especialidades</div>
-            <span>Musculação</span>
-            <span>Crossfit</span>
-            <span>Aeróbica</span>
-        </div>
-
-         <div class="item">
-            <div>Membro Desde</div>
-            <div>17/04/1994</div>
-        </div>
-
-
-    </section>
-
-</form>
+<div class="card table-cont">
+    <table width=100%>
+        <thead>
+            <tr>
+                <th>Instrutor</th>
+                <th>Atuação</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instrutor in instrutores %}
+                <tr>
+                    <td><span style="background-image: url({{ instrutor.avatar_url }})"></span>
+                        {{ instrutor.name }}</td>
+                    <td>{{ instrutor.area }}</td>
+                    <td><a href="/instrutores/{{instrutor.id}}">VER</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
     
 {% endblock content %}

@@ -8,9 +8,7 @@ routes.get('/', function(req, res){
     return res.redirect("/instrutores")
 })
 
-routes.get('/instrutores', function(req, res){
-    return res.render("instrutores/index")
-})
+routes.get('/instrutores', functionInst.index)
 
 routes.get('/instrutores/create', function(req, res){
     return res.render("instrutores/create.njk")
@@ -27,5 +25,7 @@ routes.get('/membros', function(req, res){
 })
 
 routes.put('/instrutores', functionInst.put)
+
+routes.delete('/instrutores', functionInst.delete)
 
 module.exports = routes

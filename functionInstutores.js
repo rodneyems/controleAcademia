@@ -3,6 +3,13 @@ const data = require("./data.json")
 const { idade, date } = require("./utils.js")
 const { options } = require("./routes")
 
+
+// Funcao Index
+
+exports.index = function(req, res){
+    return res.render("instrutores/index", {instrutores: data.instrutores})
+}
+
 // Funcao Show
 exports.show = function(req, res){
     const { id } = req.params
@@ -14,7 +21,7 @@ exports.show = function(req, res){
     const instrutorEstilizado = {
         ...foundinstructors,
         nascimento: idade(foundinstructors.nascimento),
-        desde: new Intl.DateTimeFormat("pt-BR").format(foundinstructors.desde)
+        desde: new Intl.DateTimeFormat("pt-BR").format(foundinstructors.desde),
     }
 
     
@@ -73,8 +80,12 @@ exports.edit = function (req, res){
 // Funcao PUT
 exports.put = function (req, res){
     const { id } = req.body
-    const foundinstructors = data.instrutores.find(function(instrutores){
-        return id == instrutores.id
+    let index = 0
+    const foundinstructors = data.instrutores.find(function(instrutores,foundIndex){
+        if ( id == instrutores.id ){
+            index = foundIndex
+            return true
+        }
     })
     if (!foundinstructors) return res.send("Instrutor não encontrado")
 
@@ -82,11 +93,28 @@ exports.put = function (req, res){
     const instrutorEstilizado = {
         ...foundinstructors,
         ...req.body,
-        nascimento
+        nascimento,
+        id: Number(req.body.id)
     }
+    
  
-    data.instrutores[id - 1] = instrutorEstilizado
+    data.instrutores[index] = instrutorEstilizado
 
+    fs.writeFile("data.json", JSON.stringify(data,null,2), function(err){
+        if (err) return res.send("Falha de escrita")
+    })
+        return res.redirect(`/instrutores/${id}`)
+}
+
+// Funcao Delete
+
+exports.delete = function(req, res){
+    const { id } = req.body
+    const filteredInstructors = data.instrutores.filter(function(instrutor){
+        return instrutor.id != id
+    })
+    data.instrutores = filteredInstructors
+    
     fs.writeFile("data.json", JSON.stringify(data,null,2), function(err){
         if (err) return res.send("Falha de escrita")
     })
