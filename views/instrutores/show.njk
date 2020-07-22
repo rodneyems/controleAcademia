@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="card">
-    <section 
-        class="avatar" 
-        style="background: url(https://source.unsplash.com/collection/3465564/400x400) no-repeat"></section>
+    <section class="avatar"
+        style="background-image: url({{ instrutor.avatar_url }})">
+    </section>
     
     <section class="details index">
     
@@ -41,7 +41,7 @@
             <a class ="button" href=/instrutores/{{instrutor.id}}/edit/>EDITAR</a>
 
     </section>
-
+</div>
 </form>
     
 {% endblock content %}
