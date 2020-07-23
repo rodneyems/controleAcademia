@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="avatar"
+        style="background-image: url({{ membro.avatar_url }})">
+    </section>
+    
+    <section class="details index">
+    
+        <h3> DETALHES </h3>
+
+        <div class="item">
+            <div>Membro</div>
+            <div>{{ membro.name }}</div>
+        </div>
+    
+        <div class="item">
+            <div>Idade</div>
+            <div>{{ membro.nascimento }}</div>
+        </div>
+        
+        <div class="item">
+            <div>Sexo</div>
+            <div>{{ membro.sexo }}</div>
+        </div>
+
+        <div class="item">
+            <div>Interesses</div>
+            {% for area in membro.area %}
+                <span>{{ area }}</span>
+            {% endfor %}
+        </div>
+
+         <div class="item">
+            <div>Membro Desde</div>
+            <div>{{ membro.desde }}</div>
+        </div>
+
+            <a class ="button" href=/membros/{{membro.id}}/edit/>EDITAR</a>
+
+    </section>
+</div>
+</form>
+    
+{% endblock content %}
