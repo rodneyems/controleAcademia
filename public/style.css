@@ -61,7 +61,7 @@ header {
 .card{
     background-color: white;
     width: 800px;
-    height: 400px;
+    height: auto;
     margin: 45px auto;
     
 
@@ -219,6 +219,8 @@ a.button {
 }
 .table-cont thead tr th {
     text-align: left;
+    font-weight: bold;
+    color: var(--cor);
 }
 
 td, th{
@@ -246,5 +248,9 @@ tbody tr td:first-child span{
 }
 
 tbody tr td:last-child{
+    color: var(--cor);
+}
+
+.add.material-icons{
     color: var(--cor);
 }
