@@ -2,14 +2,27 @@
   "membros": [
     {
       "id": 1,
-      "avatar_url": "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=643&q=80",
-      "name": "Fabio Aoki",
-      "nascimento": 696988800000,
-      "sexo": "Masculino",
+      "avatar_url": "https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Martinha Cassiano SILVA",
+      "nascimento": 1012521600000,
+      "sexo": "Feminino",
       "area": [
-        "Musculação"
+        "Aeróbica",
+        "Dança"
       ],
-      "desde": 1595463119182
+      "desde": 1595532488904
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Paula Marina",
+      "nascimento": 1115251200000,
+      "sexo": "Feminino",
+      "area": [
+        "Aeróbica",
+        "Dança"
+      ],
+      "desde": 1595532523862
     }
   ],
   "instrutores": [
@@ -58,18 +71,6 @@
         "Dança"
       ],
       "desde": 1595462355709
-    },
-    {
-      "id": 7,
-      "avatar_url": "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=643&q=80",
-      "name": "Fabio Aoki",
-      "nascimento": 669168000000,
-      "sexo": "Masculino",
-      "area": [
-        "Crossfit",
-        "Musculação"
-      ],
-      "desde": 1595462781666
     }
   ]
 }
