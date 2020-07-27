@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router()
-const functionInst = require("./functions/functionInstutores.js")
-const functionMember = require("./functions/functionmembers.js")
+const functionInst = require("./app/functions/functionInstutores.js")
+const functionMember = require("./app/functions/functionmembers.js")
 
 /* ====== ROUTES ====== */
 
