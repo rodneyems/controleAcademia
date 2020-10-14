@@ -15,7 +15,7 @@
         <div class="item">
             <div>Data de Nascimento</div>
             <div>
-                <input type="date" name="nascimento" value="{{ instrutor.nascimento }}">
+                <input type="date" name="birth" value="{{ instrutor.birth }}">
             </div>
         </div>
 
@@ -24,24 +24,24 @@
             <div>
                 <span><input 
                     type="radio" 
-                    name="sexo" 
+                    name="gender" 
                     value="Masculino" 
-                    {% if instrutor.sexo == "Masculino" %} 
+                    {% if instrutor.gender == "Masculino" %} 
                         checked 
                     {% endif %}>  Masculino</span>
                 
                 <span><input 
                     type="radio" 
-                    name="sexo" 
+                    name="gender" 
                     value="Feminino"
-                    {% if instrutor.sexo == "Feminino" %} 
+                    {% if instrutor.gender == "Feminino" %} 
                         checked 
                     {% endif %}>  Feminino</span>
                 <span><input 
                     type="radio" 
-                    name="sexo" 
+                    name="gender" 
                     value="Indefinido"
-                    {% if (instrutor.sexo == "Indefinido") or (instrutor.sexo == undefined ) %} 
+                    {% if (instrutor.gender == "Indefinido") or (instrutor.gender == undefined ) %} 
                         checked 
                     {% endif %}>  Indefinido</span>
             </div>
@@ -50,16 +50,16 @@
         <div class="item",class="create">
             <div>Área de Atuação</div>
             <div class="check">
-                {% if instrutor.area %} 
-                    <a><input type="checkbox" name="area[]" value="Crossfit" {% if ("Crossfit" in instrutor.area) %} checked {% endif %}>  Crossfit</a>
-                    <a><input type="checkbox" name="area[]" value="Musculação" {% if ("Musculação" in instrutor.area) %} checked {% endif %}>  Musculação</a>
-                    <a><input type="checkbox" name="area[]" value="Aeróbica" {% if ("Aeróbica" in instrutor.area) %} checked {% endif %} >  Aeróbica</a>
-                    <a><input type="checkbox" name="area[]" value="Dança" {% if ("Dança" in instrutor.area) %} checked {% endif %}>  Dança</a>
+                {% if instrutor.services %} 
+                    <a><input type="checkbox" name="services[]" value="Crossfit" {% if ("Crossfit" in instrutor.services) %} checked {% endif %}>  Crossfit</a>
+                    <a><input type="checkbox" name="services[]" value="Musculação" {% if ("Musculação" in instrutor.services) %} checked {% endif %}>  Musculação</a>
+                    <a><input type="checkbox" name="services[]" value="Aeróbica" {% if ("Aeróbica" in instrutor.services) %} checked {% endif %} >  Aeróbica</a>
+                    <a><input type="checkbox" name="services[]" value="Dança" {% if ("Dança" in instrutor.services) %} checked {% endif %}>  Dança</a>
                 {% else %}
-                    <a><input type="checkbox" name="area[]" value="Crossfit">  Crossfit</a>
-                    <a><input type="checkbox" name="area[]" value="Musculação">  Musculação</a>
-                    <a><input type="checkbox" name="area[]" value="Aeróbica">  Aeróbica</a>
-                    <a><input type="checkbox" name="area[]" value="Dança">  Dança</a>
+                    <a><input type="checkbox" name="services[]" value="Crossfit">  Crossfit</a>
+                    <a><input type="checkbox" name="services[]" value="Musculação">  Musculação</a>
+                    <a><input type="checkbox" name="services[]" value="Aeróbica">  Aeróbica</a>
+                    <a><input type="checkbox" name="services[]" value="Dança">  Dança</a>
                 {% endif %}
             </div>
         </div>

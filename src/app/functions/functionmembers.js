@@ -1,8 +1,6 @@
-const fs = require("fs")
-const data = require("../data.json")
-const { idade, date } = require("../utils.js")
-const { options } = require("../routes")
-
+const { idade, date } = require("../../lib/utils.js")
+const dv = require("../../config/db.js")
+const db = require("../../config/db.js")
 
 module.exports = {
     index(req, res){
@@ -33,7 +31,6 @@ module.exports = {
             }
         }
     
-        let { avatar_url, name, sexo, area } = req.body
         return res.send("EDIT")
     },
     delete(req, res){

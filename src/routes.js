@@ -14,7 +14,7 @@ routes.get('/instrutores/create', functionInst.create)
 routes.get('/instrutores/:id', functionInst.show)
 routes.post('/instrutores', functionInst.post)
 routes.get('/instrutores/:id/edit', functionInst.edit)
-routes.put('/instrutores', functionInst.put)
+routes.put('/instrutores', functionInst.edit)
 routes.delete('/instrutores', functionInst.delete)
 
 
@@ -23,7 +23,7 @@ routes.get('/membros/create', functionMember.create)
 routes.get('/membros/:id', functionMember.show)
 routes.post('/membros', functionMember.post)
 routes.get('/membros/:id/edit', functionMember.edit)
-routes.put('/membros', functionMember.put)
+routes.put('/membros', functionMember.edit)
 routes.delete('/membros', functionMember.delete)
 
 
