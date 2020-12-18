@@ -18,17 +18,17 @@
     
         <div class="item">
             <div>Idade</div>
-            <div>{{ instrutor.nascimento }}</div>
+            <div>{{ instrutor.birth }}</div>
         </div>
         
         <div class="item">
             <div>Sexo</div>
-            <div>{{ instrutor.sexo }}</div>
+            <div>{{ instrutor.gender }}</div>
         </div>
 
         <div class="item">
             <div>Especialidades</div>
-            {% for area in instrutor.area %}
+            {% for area in instrutor.services %}
                 <span>{{ area }}</span>
             {% endfor %}
         </div>

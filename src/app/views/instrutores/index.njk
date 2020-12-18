@@ -17,7 +17,9 @@
                 <tr>
                     <td><span style="background-image: url({{ instrutor.avatar_url }})"></span>
                         {{ instrutor.name }}</td>
-                    <td>{{ instrutor.area }}</td>
+                    <td>
+                                <span>{{ instrutor.services }}</span>
+                    </td>
                     <td><a href="/instrutores/{{instrutor.id}}"><i class="material-icons">keyboard_arrow_right</i></a></td>
                 </tr>
             {% endfor %}
