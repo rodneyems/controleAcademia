@@ -1,10 +1,12 @@
 const { idade, date } = require("../../lib/utils.js")
-const dv = require("../../config/db.js")
 const db = require("../../config/db.js")
 
 module.exports = {
     index(req, res){
-        return res.render("instrutores/index")
+        db.query('SELECT * FROM instructors', function(err, results){
+            if (err) return res.send("Falha na escrita dos dados, tente novamente.")
+            return res.render("instrutores/index",{instrutores:results.rows})
+        })
     },
     create(req, res){
         return res.render("instrutores/create.njk")
@@ -28,11 +30,18 @@ module.exports = {
             ) VALUES($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
+        const serviceString = ()=>{
+            services = ""
+            for (service of req.body.services){
+                services += " , " + service
+            }
+            return services.replace(", ", "")
+        }
         const values = [
             req.body.name,
             req.body.avatar_url,
             req.body.gender,
-            req.body.services,
+            serviceString(),
             date(req.body.birth),
             date(Date.now())
         ]
