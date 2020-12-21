@@ -91,7 +91,7 @@ header {
 
 /* ==== Foto ==== */
 section.avatar {
-    background-size: 100%;
+    background-size: cover;
 }
 
 
