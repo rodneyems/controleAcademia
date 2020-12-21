@@ -61,6 +61,8 @@ module.exports = {
         })
     },
     delete(req, res){
-        return res.send("delete")
+        Instructor.delete(req.body.id, ()=>{
+            return res.redirect("/instrutores")
+        })
     }
 }
