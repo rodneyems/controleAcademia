@@ -4,7 +4,7 @@
 
 <div class="card">
     <section class="avatar"
-        style="background-image: url({{ membro.avatar_url }})">
+        style="background-image: url({{ member.avatar_url }})">
     </section>
     
     <section class="details index">
@@ -13,32 +13,32 @@
 
         <div class="item">
             <div>Membro</div>
-            <div>{{ membro.name }}</div>
+            <div>{{ member.name }}</div>
         </div>
     
         <div class="item">
-            <div>Idade</div>
-            <div>{{ membro.nascimento }}</div>
+            <div>Aniversário</div>
+            <div>{{ member.birth }}</div>
         </div>
         
         <div class="item">
             <div>Sexo</div>
-            <div>{{ membro.sexo }}</div>
+            <div>{{ member.gender }}</div>
         </div>
 
         <div class="item">
             <div>Interesses</div>
-            {% for area in membro.area %}
+            {% for area in member.services %}
                 <span>{{ area }}</span>
             {% endfor %}
         </div>
 
          <div class="item">
             <div>Membro Desde</div>
-            <div>{{ membro.desde }}</div>
+            <div>{{ member.desde }}</div>
         </div>
 
-            <a class ="button" href=/membros/{{membro.id}}/edit/>EDITAR</a>
+            <a class ="button" href=/member/{{member.id}}/edit/>EDITAR</a>
 
     </section>
 </div>

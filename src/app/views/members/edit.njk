@@ -8,18 +8,18 @@
     </section>
          
         <section class="details">
-            <form method="POST" action="/membros?_method=PUT">
+            <form method="POST" action="/members?_method=PUT">
                 <h3> EDITAR MEMBRO </h3>
-                {% include "membros/fields.njk" %}
+                {% include "members/fields.njk" %}
                 <div id="put">
                     <button type="submit">Salvar</button>
                 </div>
-                <input type="hidden" name="id" value={{ membros.id }}>
+                <input type="hidden" name="id" value={{ members.id }}>
         
             </form>
 
-            <form id=form-delete action="/membros?_method=DELETE" method="post">
-                <input type="hidden" name="id" value={{ membros.id }}>
+            <form id=form-delete action="/members?_method=DELETE" method="post">
+                <input type="hidden" name="id" value={{ members.id }}>
                 <button type="submit">Deletar</button>
             </form>
             

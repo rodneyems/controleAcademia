@@ -1,13 +1,17 @@
-const { idade, date } = require("../../lib/utils.js")
-const dv = require("../../config/db.js")
-const db = require("../../config/db.js")
+const Member = require("../models/Member")
+const { date, servicesList } = require("../../lib/utils.js")
 
 module.exports = {
     index(req, res){
-        return res.render("membros/index")
+        Member.all((members)=>{
+        for (member of members){
+            servicesList(member)
+        }
+        return res.render("members/index",{ members })
+        })  
     },
     create(req, res){
-        return res.render("membros/create.njk")
+        return res.render("members/create.njk")
     },
     post(req, res){
         const keys = Object.keys(req.body)
@@ -16,12 +20,19 @@ module.exports = {
                 return res.send("Preencha todos os Campos")
             }
         }
-    
-        let { avatar_url, name, sexo, area } = req.body
-        return res.send("POST")
+
+        Member.create(req.body, Member=>{
+            return res.redirect(`/members/${Member.id}`)
+        })
     },
     show(req, res){
-        return res.send("SHOW")
+        Member.find(req.params.id, member=>{
+            if (!member) return res.send("member não encontrado")
+            member.birth = date(member.birth).birthDay
+            member.desde = date(member.member_at).format
+            member.services = servicesList(member)
+            return res.render("members/show",{member})
+        })
     },
     edit(req, res){
         const keys = Object.keys(req.body)
@@ -30,10 +41,28 @@ module.exports = {
                 return res.send("Preencha todos os Campos")
             }
         }
-    
-        return res.send("EDIT")
+        Member.find(req.params.id, members=>{
+            if (!members) return res.send("Membro não encontrado")
+            members.birth = date(members.birth).iso
+            members.desde = date(members.members_at).format
+            members.services = servicesList(members)
+            return res.render("members/edit",{members})
+        })
+    },
+    put(req, res){
+        const keys = Object.keys(req.body)
+        for ( key of keys ){
+            if ( req.body[key] == "" ){
+                return res.send("Preencha todos os Campos")
+            }
+        }
+        Member.update(req.body, ()=>{
+            return res.redirect(`/members/${req.body.id}`)
+        })
     },
     delete(req, res){
-        return res.send("delete")
+        Member.delete(req.body.id, ()=>{
+            return res.redirect("/members")
+        })
     }
 }

@@ -1,0 +1,65 @@
+<div class="item">
+            <div>Avatar URL</div>
+            <div>
+                <input type="url" name="avatar_url" placeholder="http://" value={{ members.avatar_url }}>
+            </div>
+        </div>
+  
+        <div class="item">
+            <div>Nome Completo</div>
+            <div>
+                <input type="text" name="name" placeholder="Digite seu nome" value="{{ members.name }}">
+            </div>
+        </div>
+    
+        <div class="item">
+            <div>Data de Nascimento</div>
+            <div>
+                <input type="date" name="birth" value="{{ members.birth }}">
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Sexo</div>
+            <div>
+                <span><input 
+                    type="radio" 
+                    name="gender" 
+                    value="Masculino" 
+                    {% if members.gender == "Masculino" %} 
+                        checked 
+                    {% endif %}>  Masculino</span>
+                
+                <span><input 
+                    type="radio" 
+                    name="gender" 
+                    value="Feminino"
+                    {% if members.gender == "Feminino" %} 
+                        checked 
+                    {% endif %}>  Feminino</span>
+                <span><input 
+                    type="radio" 
+                    name="gender" 
+                    value="Indefinido"
+                    {% if ( members.gender == "Indefinido" or  members.gender == undefined ) %} 
+                        checked 
+                    {% endif %}>  Indefinido</span>
+            </div>
+        </div>
+
+        <div class="item",class="create">
+            <div>Área de Atuação</div>
+            <div class="check">
+                {% if members.services %} 
+                    <a><input type="checkbox" name="services[]" value="Crossfit" {% if ("Crossfit" in members.services) %} checked {% endif %}>  Crossfit</a>
+                    <a><input type="checkbox" name="services[]" value="Musculação" {% if ("Musculação" in members.services) %} checked {% endif %}>  Musculação</a>
+                    <a><input type="checkbox" name="services[]" value="Aeróbica" {% if ("Aeróbica" in members.services) %} checked {% endif %} >  Aeróbica</a>
+                    <a><input type="checkbox" name="services[]" value="Dança" {% if ("Dança" in members.services) %} checked {% endif %}>  Dança</a>
+                {% else %}
+                    <a><input type="checkbox" name="services[]" value="Crossfit">  Crossfit</a>
+                    <a><input type="checkbox" name="services[]" value="Musculação">  Musculação</a>
+                    <a><input type="checkbox" name="services[]" value="Aeróbica">  Aeróbica</a>
+                    <a><input type="checkbox" name="services[]" value="Dança">  Dança</a>
+                {% endif %}
+            </div>
+        </div>
