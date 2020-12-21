@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 const functionInst = require("./app/functions/functionInstutores.js")
-const functionMember = require("./app/functions/functionmembers.js")
+const functionMember = require("./app/functions/functionMembers.js")
 
 /* ====== ROUTES ====== */
 
@@ -18,13 +18,13 @@ routes.put('/instrutores', functionInst.put)
 routes.delete('/instrutores', functionInst.delete)
 
 
-routes.get('/membros', functionMember.index)
-routes.get('/membros/create', functionMember.create)
-routes.get('/membros/:id', functionMember.show)
-routes.post('/membros', functionMember.post)
-routes.get('/membros/:id/edit', functionMember.edit)
-routes.put('/membros', functionMember.edit)
-routes.delete('/membros', functionMember.delete)
+routes.get('/members', functionMember.index)
+routes.get('/members/create', functionMember.create)
+routes.get('/members/:id', functionMember.show)
+routes.post('/members', functionMember.post)
+routes.get('/members/:id/edit', functionMember.edit)
+routes.put('/members', functionMember.put)
+routes.delete('/members', functionMember.delete)
 
 
 module.exports = routes
