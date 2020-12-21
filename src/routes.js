@@ -14,7 +14,7 @@ routes.get('/instrutores/create', functionInst.create)
 routes.get('/instrutores/:id', functionInst.show)
 routes.post('/instrutores', functionInst.post)
 routes.get('/instrutores/:id/edit', functionInst.edit)
-routes.put('/instrutores', functionInst.edit)
+routes.put('/instrutores', functionInst.put)
 routes.delete('/instrutores', functionInst.delete)
 
 
