@@ -32,13 +32,13 @@ module.exports = {
         ]
         
         db.query(query, values, function(err, results){
-            if (err) return res.send("Falha na escrita dos dados, tente novamente.")
+            if (err) throw `Falha na escrita dos dados, tente novamente. ${err}`
             callback(results.rows[0])
         })
     },
     find(id, callback){
         db.query('SELECT * FROM instructors WHERE id = $1',[id], function(err, results){
-            if (err) return res.send("Falha na escrita dos dados, tente novamente.")
+            if (err) throw `Falha na escrita dos dados, tente novamente. ${err}`
             callback(results.rows[0])
         })
     },
@@ -61,11 +61,17 @@ module.exports = {
             data.id
         ]
         console.log(data.services)
-        db.query(query, values, function(err, results){
+        db.query(query, values, (err, results)=>{
             console.log(results)
             console.log(err)
-            // if (err) return res.send("Falha na escrita dos dados, tente novamente.")
-            callback()
+            if (err) throw `Falha na escrita dos dados, tente novamente. ${err}`
+            return callback()
+        })
+    },
+    delete(id, callback){
+        db.query(`DELETE FROM instructors WHERE id = $1`, [id], (err, results)=>{
+            if (err) throw `Falha na escrita dos dados, tente novamente. ${err}`
+            return callback()
         })
     }
 }
