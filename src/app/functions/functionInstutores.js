@@ -1,12 +1,14 @@
-const { idade, date } = require("../../lib/utils.js")
-const db = require("../../config/db.js")
+const Instructor = require("../models/Instructor")
+const { age, date, servicesList } = require("../../lib/utils.js")
 
 module.exports = {
     index(req, res){
-        db.query('SELECT * FROM instructors', function(err, results){
-            if (err) return res.send("Falha na escrita dos dados, tente novamente.")
-            return res.render("instrutores/index",{instrutores:results.rows})
-        })
+        Instructor.all((instrutores)=>{
+        for (instrutor of instrutores){
+            servicesList(instrutor)
+        }
+        return res.render("instrutores/index",{ instrutores })
+        })  
     },
     create(req, res){
         return res.render("instrutores/create.njk")
@@ -18,43 +20,19 @@ module.exports = {
                 return res.send("Preencha todos os Campos")
             }
         }
-        
-        const query = `
-            INSERT INTO instructors(
-                name,
-                avatar_url,
-                gender,
-                services,
-                birth,
-                member_at
-            ) VALUES($1, $2, $3, $4, $5, $6)
-            RETURNING id
-        `
-        const serviceString = ()=>{
-            services = ""
-            for (service of req.body.services){
-                services += " , " + service
-            }
-            return services.replace(", ", "")
-        }
-        const values = [
-            req.body.name,
-            req.body.avatar_url,
-            req.body.gender,
-            serviceString(),
-            date(req.body.birth),
-            date(Date.now())
-        ]
-        
-        db.query(query, values, function(err, results){
-            if (err) return res.send("Falha na escrita dos dados, tente novamente.")
-            
-            return res.redirect(`/instructors/${results.rows[0].id}`)
-        })
 
+        Instructor.create(req.body, instructor=>{
+            return res.redirect(`/instrutores/${instructor.id}`)
+        })
     },
     show(req, res){
-        return res.send("SHOW")
+        Instructor.find(req.params.id, instrutor=>{
+            if (!instrutor) return res.send("Instrutor não encontrado")
+            instrutor.birth = age(instrutor.birth)
+            instrutor.desde = date(instrutor.member_at).format
+            instrutor.services = servicesList(instrutor)
+            return res.render("instrutores/show",{instrutor})
+        })
     },
     edit(req, res){
         const keys = Object.keys(req.body)
@@ -63,8 +41,24 @@ module.exports = {
                 return res.send("Preencha todos os Campos")
             }
         }
-
-        return res.send("EDIT")
+        Instructor.find(req.params.id, instrutor=>{
+            if (!instrutor) return res.send("Instrutor não encontrado")
+            instrutor.birth = date(instrutor.birth).iso
+            instrutor.desde = date(instrutor.member_at).format
+            instrutor.services = servicesList(instrutor)
+            return res.render("instrutores/edit",{instrutor})
+        })
+    },
+    put(req, res){
+        const keys = Object.keys(req.body)
+        for ( key of keys ){
+            if ( req.body[key] == "" ){
+                return res.send("Preencha todos os Campos")
+            }
+        }
+        Instructor.update(req.body, ()=>{
+            return res.redirect(`/instrutores/${req.body.id}`)
+        })
     },
     delete(req, res){
         return res.send("delete")
