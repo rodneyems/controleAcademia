@@ -62,8 +62,6 @@ module.exports = {
         ]
         console.log(data.services)
         db.query(query, values, (err, results)=>{
-            console.log(results)
-            console.log(err)
             if (err) throw `Falha na escrita dos dados, tente novamente. ${err}`
             return callback()
         })
